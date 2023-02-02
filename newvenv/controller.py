@@ -55,6 +55,7 @@ while True:
             Utils().json_to_yaml()
     elif menu == '4':
         # 프로그램 종료
+        print("프로그램이 종료되었습니다.")
         break
     else:
         # 지정된 메뉴 이외의 값이 입력된 경우
