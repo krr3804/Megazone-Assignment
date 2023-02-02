@@ -12,3 +12,9 @@ def yaml_to_json():
     # json파일로 데이터를 변환해서 반환
     with open('data.json', 'w') as json_data:
         json.dump(yaml_obj, json_data)
+
+
+def json_to_yaml(json_data):
+    yaml = ruamel.yaml.YAML(typ='safe')
+    with open("data.yaml", "w") as yaml_file:
+        yaml.dump(json_data, yaml_file)
