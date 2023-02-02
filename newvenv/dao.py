@@ -11,8 +11,7 @@ class DAO:
 
     def insert_data(self, data):
         # 데이터 삽입
-        manifest_id = self.collection.insert_one(data).inserted_id
-        return manifest_id
+        self.collection.insert_many(data)
 
     def find_id_list(self):
         # 전체 id 목록 가져오기
