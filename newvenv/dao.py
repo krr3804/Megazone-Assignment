@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 
-class DAO:
+class Dao:
     def __init__(self):
         # 클라이언트 연결
         client = MongoClient(host='localhost', port=27017)

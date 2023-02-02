@@ -1,5 +1,5 @@
-from utils import Utils
-from dao import DAO
+from parser import Parser
+from dao import Dao
 import json
 import bson
 import ruamel.yaml
@@ -16,7 +16,7 @@ while True:
             # 파일명 콘솔로 입력받기
             file_name = input("파일명 입력: ")
             # yaml -> json 변환
-            Utils().yaml_to_json(file_name)
+            Parser().yaml_to_json(file_name)
         except FileNotFoundError:
             # 입력한 파일이 존재하지 않은 경우
             print("파일이 존재하지 않습니다.")
@@ -28,11 +28,11 @@ while True:
             with open('data.json', 'r') as json_file:
                 data = json.load(json_file)
             # db에 데이터 삽입
-            DAO().insert_data(data)
+            Dao().insert_data(data)
             print("정상적으로 입력되었습니다.")
     elif menu == '2':
         # id 리스트 출력
-        list = DAO().find_id_list()
+        list = Dao().find_id_list()
         # 데이터가 존재하는 경우
         if (len(list) > 0):
             print(*list, sep="\n")
@@ -44,7 +44,7 @@ while True:
         id = input("ID를 입력해주세요: ")
         try:
             # id로 db에서 데이터 조회
-            data = DAO().find_data_by_id(id)
+            data = Dao().find_data_by_id(id)
         except bson.errors.InvalidId:
             # ID가 데이터베이스에 존재하지 않는 경우
             print("존재하지 않는 ID입니다.")
@@ -52,7 +52,7 @@ while True:
             with open('data.json', 'w') as json_file:
                 json.dump(data, json_file)
             # json을 yaml data로 변환
-            Utils().json_to_yaml()
+            Parser().json_to_yaml()
     elif menu == '4':
         # 프로그램 종료
         print("프로그램이 종료되었습니다.")
