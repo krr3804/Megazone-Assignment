@@ -4,7 +4,7 @@ import sys
 import fnmatch
 
 
-class Parser:
+class Parsers:
     def __init__(self):
         self.yaml = ruamel.yaml.YAML(typ='safe')
 

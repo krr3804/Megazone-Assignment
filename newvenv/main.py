@@ -1,4 +1,4 @@
-from parser import Parser
+from parsers import Parsers
 from dao import Dao
 import json
 import bson
@@ -16,7 +16,7 @@ while True:
             # 파일명 콘솔로 입력받기
             file_name = input("파일명 입력: ")
             # yaml -> json 변환
-            Parser().yaml_to_json(file_name)
+            Parsers().yaml_to_json(file_name)
         except FileNotFoundError:
             # 입력한 파일이 존재하지 않은 경우
             print("파일이 존재하지 않습니다.")
@@ -52,7 +52,7 @@ while True:
             with open('data.json', 'w') as json_file:
                 json.dump(data, json_file)
             # json을 yaml data로 변환
-            Parser().json_to_yaml()
+            Parsers().json_to_yaml()
     elif menu == '4':
         # 프로그램 종료
         print("프로그램이 종료되었습니다.")
