@@ -39,7 +39,6 @@ while True:
         # DB에 데이터가 없는 경우
         else:
             print("데이터가 존재하지 않습니다.")
-
     elif menu == '3':
         # 조회할 데이터 id 입력받기
         id = input("ID를 입력해주세요: ")

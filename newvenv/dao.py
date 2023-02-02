@@ -6,7 +6,7 @@ class DAO:
     def __init__(self):
         # 클라이언트 연결
         client = MongoClient(host='localhost', port=27017)
-    # 컬렉션 호출
+        # 컬렉션 호출
         self.collection = client['db']['manifests']
 
     def insert_data(self, data):
