@@ -7,7 +7,7 @@ class Dao:
         # 클라이언트 연결
         client = MongoClient(host='localhost', port=27017)
         # 컬렉션 호출
-        self.collection = client['db']['manifests']
+        self.collection = client['db']['manifest']
 
     def insert_data(self, data):
         # 데이터 삽입
