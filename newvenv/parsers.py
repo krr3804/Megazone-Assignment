@@ -19,7 +19,7 @@ class Parsers:
                     raise ValueError()
                 else:
                     # json파일로 데이터를 변환해서 반환
-                    json.dump(yaml_objs, json_file)
+                    json.dump(yaml_objs, json_file, ensure_ascii=False)
         else:
             raise NameError()
 
@@ -28,6 +28,9 @@ class Parsers:
             # data.json의 데이터를 불러와 저장
             json_data = json.load(json_file)
             # 저장된 json 데이터를 yaml 파일로 변환
+            self.yaml.indent(mapping=2, sequence=2)
+            self.yaml.preserve_quotes = True
+            self.yaml.default_flow_style = False
             self.yaml.dump(json_data, yaml_file)
 
         # 콘솔에 출력

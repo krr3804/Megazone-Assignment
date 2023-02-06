@@ -50,7 +50,7 @@ while True:
             print("존재하지 않는 ID입니다.")
         else:
             with open('data.json', 'w') as json_file:
-                json.dump(data, json_file)
+                json.dump(data, json_file, indent=2)
             # json을 yaml data로 변환
             Parsers().json_to_yaml()
     elif menu == '4':
