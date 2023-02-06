@@ -21,4 +21,6 @@ class Dao:
     def find_data_by_id(self, id):
         # object id로 데이터 호출
         data = self.collection.find_one({"_id": ObjectId(id)}, {"_id": 0})
+        if data == None:
+            raise ValueError()
         return data

@@ -45,7 +45,7 @@ while True:
         try:
             # id로 db에서 데이터 조회
             data = Dao().find_data_by_id(id)
-        except bson.errors.InvalidId:
+        except (bson.errors.InvalidId, ValueError):
             # ID가 데이터베이스에 존재하지 않는 경우
             print("존재하지 않는 ID입니다.")
         else:
